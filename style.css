@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    z-index: 1;
+}
+.description{
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 100vw;
+    height: 20vh;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); 
+    color: white;
+}
+.description button{
+    margin-top: 30px;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(131,58,180);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: .4s;
+}
+.description button:hover{
+    transform: scale(1.2);
+}
+.text{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.magic{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
+    width: 100vw;
+    height: 80vh;
+}
+.container{
+    margin-top: 50px;
+    margin-left: 30px;
+    border-radius: 50px;
+    width: 400px;
+    height: 300px;
+    background-color: rgb(219, 219, 219);
+    color:black;
+}
+.containercontent{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.containercontent h1{
+    margin: 20px;
+}
+form{
+    width: 100vw;
+    display: none;
+}
+.pop-up{
+    display: block;
+}
+.popbackground{
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
+.poptransform{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.inputandlabel{
+    display: flex;
+    flex-direction: column;
+}
+.specialx{
+    position: relative;
+    left: 0%;
+    top: 0%;
+}
+.specialx button{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid white;
+    transition: .2s;
+}
+.specialx button:hover{
+    background-color: white;
+    color: black;
+}
+label{
+    margin-bottom: 30px;
+}
+input{
+    border-radius: 50px;
+    height: 30px;
+    border: none;
+}
+.formsubmit{
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 30px;
+    
+}
