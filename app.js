@@ -42,9 +42,53 @@ function Book(nameOfAuthor,nameOfBook,numberOfPages) {
     this.nameOfAuthor=nameOfAuthor;
     this.nameOfBook=nameOfBook;
     this.numberOfPages=numberOfPages;
-    this.status='read';
+    this.status='';
 }
 
+function clearFields(authorName,bookName,pageNumber) {
+    authorName.value='';
+    bookName.value='';
+    pageNumber.value='';
+}
+
+function forShakepeers() {
+    let reads=document.querySelectorAll('.read');
+    let removeBooks=document.querySelectorAll('.remove');
+    reads.forEach(read => {
+        read.addEventListener('click',function () {
+            read.classList.toggle('procitano');
+            if(read.innerText=='read'){
+                read.innerText='not read';
+            }
+            else{
+                read.innerText='read';
+            }
+        });    
+    });
+    removeBooks.forEach(removeBook => {
+        removeBook.addEventListener('click',function () {
+            let bratemili=removeBook.parentElement.parentElement;
+            bratemili.remove();
+        });    
+    });
+}
+
+function readAndRemove(container) {
+    let read=container.querySelector('.read');
+    let removeBook=container.querySelector('.remove');
+    read.addEventListener('click',function () {
+        read.classList.toggle('procitano');
+        if(read.innerText=='read'){
+            read.innerText='not read';
+        }
+        else{
+            read.innerText='read';
+        }
+    });
+    removeBook.addEventListener('click',function () {
+        container.style.display='none';
+    });
+}
 
 function addBookToLibrary() {
     myLibrary.forEach(object => {
@@ -54,17 +98,18 @@ function addBookToLibrary() {
         let container=document.createElement('div');
             container.innerHTML=
             `<div class="containercontent">
+                <button class="remove">X</button>
                 <h1 class="imepisca">${nameOfAuthor}</h1>
                 <h1 class="imeknjige">${nameOfBook}</h1>
                 <div class="flex">
                     <h1 class="brojstranica">${numberOfPages}</h1>
                     <p>pages</p>
                 </div>
-                <button>Read</button>
+                <button class="read">Read</button>
             </div>`
         container.classList.add('container');
         grid.appendChild(container);
-        
+        readAndRemove(container);
     });
     myLibrary.pop();    
 }
@@ -88,24 +133,29 @@ submit.addEventListener('click',function () {
         a=0;
         b=0
         c=0;
+        
         deleteAll();
+        
         let author=authorName.value;
         let bookname=bookName.value;
         let pagenumber=pageNumber.value;
-
+        
         let book = new Book(author,bookname,pagenumber);
         myLibrary.push(book);
+        
         console.log(book);
         console.log(myLibrary);
+        
+        clearFields(authorName,bookName,pageNumber);
         addBookToLibrary();
         form.classList.toggle('pop-up');
-        authorName.value='';
-        bookName.value='';
-        pageNumber.value='';
+        
     }
     
     
 });
+
+forShakepeers();
 
 allButtons.forEach(button => {
     button.addEventListener('click',(e) => {

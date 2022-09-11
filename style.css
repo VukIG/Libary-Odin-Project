@@ -140,19 +140,26 @@ input{
     color: red;
     margin: 10px;
 }
-input[type="checkbox"]{
-    visibility: hidden;
+.remove{
+    color: white;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin: 20px;
+    left: 0%;
+    top: 0%;
 }
-.check{
-    position: relative;
-    width: 80px;
-    height: 30px;
+/* AJDE MOLIM TE */
+.containercontent button{
+    background-color: gray;
+    padding: 10px;
     border-radius: 30px;
-    background-color: grey;
-    display: block;
+    border: none;
+    margin: 20px;
     cursor: pointer;
-    transition: ease 0.5s;
+    transition: .4s;
 }
-input[type=checkbox]:checked ~ .check{
+.procitano{
     background-color: red;
+    color: white;
 }
